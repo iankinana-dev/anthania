@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Affichage d'image</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            font-family: Arial, sans-serif;
+        }
+
+        .image-container {
+            width: 90%;
+            max-width: 800px;
+            padding: 15px;
+            background: #1c1c1c;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-container img {
+            display: block;
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .error {
+            display: none;
+            padding: 30px;
+            text-align: center;
+            color: #ff6b6b;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="image-container">
+
+        <!-- =========================================
+             CHANGE SIMPLEMENT LE NOM DE L'IMAGE ICI
+             ========================================= -->
+        <img id="image" src="image.png" alt="Mon image">
+
+        <div class="error" id="erreur">
+            Impossible de charger l'image.
+        </div>
+
+    </div>
+
+    <script>
+        const image = document.getElementById("monImage");
+        const erreur = document.getElementById("erreur");
+
+        image.addEventListener("error", function () {
+            image.style.display = "none";
+            erreur.style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
+```
